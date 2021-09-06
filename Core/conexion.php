@@ -8,7 +8,7 @@ class Conexion
     {
         $cnn = null;
         try {
-            $cnn = new PDO("mysql:host=gestioncmc.ddns.net:3306;dbname=ventaproducto", "root", "newral05");
+            $cnn = new PDO("mysql:host=gestioncmc.ddns.net:3306;dbname=ventaproductos", "root", "newral05");
             $cnn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $ex) {
             echo "Error $ex->getMessage();";

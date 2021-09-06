@@ -1,4 +1,5 @@
 <?php
+require "../Core/conexion.php";
 class ProductoDao
 {
     private $mensaje;
@@ -67,6 +68,22 @@ class ProductoDao
             $query->bindParam(1, $idProducto);
             $query->execute();
             return $query->fetch();
+        } catch (Exception $ex) {
+            $mensaje = "Error: " . $ex->getMessage() . ".";
+        }
+        $cnn = null;
+        return $mensaje;
+    }
+
+    function obtenerProductos($listaProducto)
+    {
+        $cnn = Conexion::getConexion();
+        try {
+            $in  = str_repeat('?,', count($listaProducto) - 1) . '?';
+            $query = $cnn->prepare("SELECT * FROM producto WHERE idProducto in ($in)");
+           // $query->bindParam(1, $idProducto);
+            $query->execute($listaProducto);
+            return $query->fetchAll();
         } catch (Exception $ex) {
             $mensaje = "Error: " . $ex->getMessage() . ".";
         }
