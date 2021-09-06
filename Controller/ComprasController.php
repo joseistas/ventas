@@ -1,6 +1,7 @@
 <?php
 require "../Model/dto/ProductoDto.php";
 require "../Model/dao/ProductoDao.php";
+require "../Core/conexion.php";
 
  session_start();
  if (!isset($_SESSION['productos'])) {
