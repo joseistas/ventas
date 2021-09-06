@@ -73,22 +73,28 @@ require "../Controller/ComprasController.php";
                                             <!-- Best Seller Item -->
                                             <?php
                                             foreach ($listaProductoSel as $producto){
-                                                $imagen=$producto["imagen"];
-                                                $nombre=$producto["nombre"];
-                                                $precio=$producto["precio"];
-                                                $id=$producto["idProducto"];
-                                                $cantidad = contarProductoSele($id);
-                                            echo <<<EOT
-                                                    <li class="clearfix">
-                                                        <div class="best_image"><img src="images/$imagen" alt="" style=" width: 63px;"/></div>
-                                                            <div class="best_content">
-                                                                <div class="best_title"><a href="product.html">$nombre</a></div>
-                                                                <div class="best_price">$precio</div>
-                                                            </div>
-
-                                                            <div class="best_buy">$cantidad</div>
-                                                    </li>
-                                                EOT;
+                                                if ($listaProducto <= 0) {
+                                                  echo "<h6>No has seleccionado productos</h6>"; 
+                                                }else{
+                                                    $imagen=$producto["imagen"];
+                                                    $nombre=$producto["nombre"];
+                                                    $precio=$producto["precio"];
+                                                    $id=$producto["idProducto"];
+                                                    $cantidad = contarProductoSele($id);
+                                                echo <<<EOT
+                                                        <li class="clearfix">
+                                                            <div class="best_image"><img src="images/$imagen" alt="" style=" width: 63px;"/></div>
+                                                                <div class="best_content">
+                                                                    <div class="best_title"><a href="product.html">$nombre</a></div>
+                                                                    <div class="best_price">$precio</div>
+                                                                </div>
+    
+                                                                <button type="button" class="btn btn-outline-secondary waves-effect px-3 best_buy"><i class="far fa-trash-alt"></i>
+                                                                </button>
+                                                        </li>
+                                                    EOT;
+                                                }
+                                               
                                             }
                                             ?>
                                             
@@ -96,7 +102,7 @@ require "../Controller/ComprasController.php";
                                         </ul>
                                         
                                     </div>
-                                    <a href="detalleVenta.php" class="clear_price_btn">Pagar</a>
+                                    <a href="detalleVenta.php" class=" btn">Pagar</a>
                                 </div>
                             </div>
                         </div>

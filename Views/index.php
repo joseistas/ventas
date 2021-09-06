@@ -21,9 +21,7 @@ require "../Controller/ComprasController.php";
 <body>
 
 <div class="super_container">
-<?php
- print_r($listaProducto)
-?>
+
 	<!-- Header -->
 
 	<header class="header">
@@ -59,7 +57,7 @@ require "../Controller/ComprasController.php";
 			</div>
 			<nav class="main_nav">
 				<ul>
-					<li><a href="#">Inicio Sesión</a></li>
+					<li><a href="./Portal/login.php">Inicio Sesión</a></li>
 					
 					
 				</ul>
