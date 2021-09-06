@@ -153,7 +153,7 @@ require "../Controller/ComprasController.php";
 				<?php
 				}
 				?>
-			>
+			
 		</div>
 	</div>
 
