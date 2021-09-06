@@ -9,11 +9,12 @@ $sentencia = $cnn->prepare ("SELECT *  FROM ventaproductos.usuario WHERE idUsuar
 $sentencia->execute([$usu, $contra]);
 $valor = $sentencia->fetch(PDO::FETCH_OBJ);
 
-if($valor->nombre_usu === $usu){
-    header('Location:index.php');
+if($valor->idUsuario === $usu){
+    header('Location:admin.php');
 
 }else{
-    header('Location:login.php');
+    header('Location: login.php?status=error');
+    session_destroy();
 
 }
 ?>
