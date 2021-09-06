@@ -1,3 +1,9 @@
+<?php 
+ session_start();
+ if (isset($_SESSION['nombre'])){
+	 header('Location:admin.php');
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +36,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+			<form class="login100-form validate-form" method="POST" action="LoginProceso.php">
 					<span class="login100-form-title p-b-43">
 						Inicio Sesión 
 					</span>
@@ -53,12 +59,12 @@
 					
 					</div>
 			
-					<a href="admin.php">Admin</a>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" style="background-color: #937C6F;">
 							Ingresar
 						</button>
 					</div>
+					
 					
 					<div class="text-center p-t-46 p-b-20">
 						<span class="txt2">

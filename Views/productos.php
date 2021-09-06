@@ -51,7 +51,7 @@ require "../Controller/ComprasController.php";
 			</div>
 			<nav class="main_nav">
 				<ul>
-					<li><a href="#">Inicio Sesión</a></li>	
+					<li><a href="../Views/Portal/login.php">Inicio Sesión</a></li>	
 				</ul>
 			</nav>
 			
@@ -72,10 +72,13 @@ require "../Controller/ComprasController.php";
                                         <ul>
                                             <!-- Best Seller Item -->
                                             <?php
+                                             if (count($listaProductoSel)==0) {
+                                                echo '<h6>No has seleccionado ningun productos </h6>'; 
+                                              }else{
+
+                                              
                                             foreach ($listaProductoSel as $producto){
-                                                if ($listaProducto <= 0) {
-                                                  echo "<h6>No has seleccionado productos</h6>"; 
-                                                }else{
+                                              
                                                     $imagen=$producto["imagen"];
                                                     $nombre=$producto["nombre"];
                                                     $precio=$producto["precio"];
@@ -87,22 +90,34 @@ require "../Controller/ComprasController.php";
                                                                 <div class="best_content">
                                                                     <div class="best_title"><a href="product.html">$nombre</a></div>
                                                                     <div class="best_price">$precio</div>
+                                                                    <div class="best_price">$cantidad</div>
                                                                 </div>
-    
-                                                                <button type="button" class="btn btn-outline-secondary waves-effect px-3 best_buy"><i class="far fa-trash-alt"></i>
-                                                                </button>
-                                                        </li>
+                                                               
+                                                                <div class="d-grid gap-2 d-md-flex justify-content-md-end " role="group" style="margin: inherit;">
+                                                                    <div class="product_fav product_option product_select" data-producto="$id">+</div>
+                                                                    <div class="product_fav product_option product_des_select" data-producto="$id">-</div>
+                                                                </div>
+                                                                <br>
                                                     EOT;
-                                                }
+                                                
                                                
                                             }
+                                        }
                                             ?>
                                             
                           
                                         </ul>
                                         
                                     </div>
-                                    <a href="detalleVenta.php" class=" btn">Pagar</a>
+                                    <br>
+                                    <br>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end " role="group" style="margin: inherit;">
+                                    <a href="detalleVenta.php" class="btn btn-outline-secondary" style="margin-right: 3px;"  >Ordenar</a>
+                                    <form form method="post" action="productos.php">
+                                    <input type="submit" class="btn btn-outline-dark" value="Cancelar " name="limpiar">   
+                                    </form>
+                                    </div>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -110,6 +125,10 @@ require "../Controller/ComprasController.php";
                 </div>
             </div>
         </div>
+    <form id="compra" action="productos.php" method="POST">
+            <input id="evento" name="evento" type="hidden" value="">
+            <input id= "idProducto" name="idProducto" type="hidden" value="">
+    </form>
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="styles/bootstrap4/popper.js"></script>
         <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -119,5 +138,20 @@ require "../Controller/ComprasController.php";
         <script src="plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.js"></script>
         <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
         <script src="js/categories_custom.js"></script>
+        <script>
+            $( ".product_select" ).click(function() {
+                    let id = $(this).data("producto");
+                    $("#idProducto").val(id);
+                    $("#evento").val("evento");
+                    $("#compra").submit();
+                });
+
+                $( ".product_des_select" ).click(function() {
+                    let id = $(this).data("producto");
+                    $("#idProducto").val(id);
+                    $("#evento").val("delete");
+                    $("#compra").submit();
+                });
+        </script>
     </body>
 </html>

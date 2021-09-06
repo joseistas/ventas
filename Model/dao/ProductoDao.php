@@ -81,14 +81,15 @@ class ProductoDao
         try {
             $in  = str_repeat('?,', count($listaProducto) - 1) . '?';
             $query = $cnn->prepare("SELECT * FROM producto WHERE idProducto in ($in)");
-           // $query->bindParam(1, $idProducto);
+          
+          print_r ($listaProducto);
             $query->execute($listaProducto);
             return $query->fetchAll();
         } catch (Exception $ex) {
-            $mensaje = "Error: " . $ex->getMessage() . ".";
+            echo $ex;
+            return array();
         }
         $cnn = null;
-        return $mensaje;
     }
 
     function eliminar($idProducto)

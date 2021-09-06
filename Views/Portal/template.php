@@ -17,7 +17,7 @@
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold border-bottom"><i class="bi bi-bank2 me-2"></i>Tienda CJ</div>
             <div class="list-group list-group-flush">
                 <a href="admin.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="bi bi-three-dots-vertical me-2"></i>Dashboard</a>
-                <a href="../inicio/cerrarSesion.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i class="bi bi-box-arrow-left me-2"></i>Cerrar Sesión</a>
+                <a href="login.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i class="bi bi-box-arrow-left me-2"></i>Cerrar Sesión</a>
             </div>
         </div>
 
