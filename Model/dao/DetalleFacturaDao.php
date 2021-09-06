@@ -52,11 +52,10 @@ class DetalleFacturaDao
         $cnn = Conexion::getConexion();
         try {
             $query = $cnn->prepare("INSERT INTO detalleFactura VALUES (NULL, ?, ?, ?, ?)");
-            $query->bindParam(1, $detalleFacturaDto->getIdDetalleFactura());
-            $query->bindParam(2, $detalleFacturaDto->getCantidad());
-            $query->bindParam(3, $detalleFacturaDto->getPrecioTotal());
-            $query->bindParam(4, $detalleFacturaDto->getProducto()->getIdProducto());
-            $query->bindParam(5, $detalleFacturaDto->getFactura()->getIdFactura());
+            $query->bindParam(1, $detalleFacturaDto->getCantidad());
+            $query->bindParam(2, $detalleFacturaDto->getPrecioTotal());
+            $query->bindParam(3, $detalleFacturaDto->getProducto());
+            $query->bindParam(4, $detalleFacturaDto->getFactura());
             $query->execute();
             $mensaje = "Registro creado exitosamente.";
         } catch (Exception $ex) {

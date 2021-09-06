@@ -4,8 +4,8 @@ class DetalleFacturaDto
     private $idDetalleFactura;
     private $cantidad;
     private $precioTotal;
-    private ProductoDto $producto;
-    private FacturaDto $factura;
+    private $producto;
+    private $factura;
 
     function getIdDetalleFactura()
     {

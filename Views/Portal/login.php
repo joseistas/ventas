@@ -59,7 +59,7 @@
 					
 					</div>
 			
-
+					<a href="admin.php">Admin</a>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" style="background-color: #937C6F;">
 							Ingresar
