@@ -7,7 +7,7 @@
         private $descripcion;
         private $cantidad; 
         private $precio;
-        private UsuarioDto $idUsuarioCreacion;
+        private $idUsuarioCreacion;
 
         function getIdProducto(){
             return $this->idProducto;

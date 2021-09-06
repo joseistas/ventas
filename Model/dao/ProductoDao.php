@@ -14,7 +14,7 @@ class ProductoDao
             $query->bindParam(3, $productoDto->getDescripcion());
             $query->bindParam(4, $productoDto->getCantidad());
             $query->bindParam(5, $productoDto->getPrecio());
-            $query->bindParam(6, $productoDto->getIdUsuarioCreacion()->getIdUsuario());
+            $query->bindParam(6, $productoDto->getIdUsuarioCreacion());
             $query->execute();
             $mensaje = "Se ha registrado exitosamente.";
         } catch (Exception $ex) {

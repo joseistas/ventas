@@ -10,6 +10,7 @@ $sentencia->execute([$usu, $contra]);
 $valor = $sentencia->fetch(PDO::FETCH_OBJ);
 
 if($valor->idUsuario === $usu){
+    $_SESSION['usuario'] = $valor;
     header('Location:admin.php');
 
 }else{

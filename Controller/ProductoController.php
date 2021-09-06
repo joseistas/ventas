@@ -11,7 +11,7 @@ if (isset($_POST["registrar"])) {
     eliminar();
 }
 
-function registrar(UsuarioDto $usuarioDto)
+function registrar()
 {
     $productoDto = new ProductoDto();
     $productoDao = new ProductoDao(); 
@@ -20,9 +20,9 @@ function registrar(UsuarioDto $usuarioDto)
     $productoDto->setDescripcion($_POST["descripcion"]);
     $productoDto->setCantidad($_POST["cantidad"]);
     $productoDto->setPrecio($_POST["precio"]);
-    $productoDto->setIdUsuarioCreacion($usuarioDto);
-    $msg = $productoDao->registrar($productoDto);
-    header("Location:../registarProducto.php?msg=$msg");
+    $productoDto->setIdUsuarioCreacion($_POST['idUsuarioCreacion']);
+    $mensaje = $productoDao->registrar($productoDto);
+    header("Location:../Views/Portal/registarProducto.php?mensaje=$mensaje");
 }
 
 function modificar(UsuarioDto $usuarioDto)
