@@ -10,13 +10,6 @@ function registrarFactura(FacturaDto $facturaDto)
     //header("Location:../index.php?msg=$msg");
 }
 
-function modificarFactura(FacturaDto $facturaDto)
-{
-    $facturaDao = new FacturaDao();
-    $msg = $facturaDao->modificar($facturaDto);
-    header("Location:../index.php?msg=$msg");
-}
-
 function eliminarFactura()
 {
     $facturaDao = new FacturaDao();

@@ -7,8 +7,6 @@ require "../Controller/FacturaController.php";
 
 if (isset($_POST["registrar"])) {
     registrar();
-} else if (isset($_POST["modificar"])) {
-    modificar();
 } else if (isset($_GET["eliminar"])) {
     eliminar();
 }
@@ -28,14 +26,7 @@ function registrar()
     $fecha = (new DateTime())->format('Y-m-d H:i:s');
     $facturaDto->setFecha($fecha);
     $facturaDto->setDireccionEntrega($_POST["direccion"]);
-    if (isset($_POST["metodoPago1"])) {
-        $metodoPago = "Pago con tarjeta";
-    } else if (isset($_POST["metodoPago2"])){
-        $metodoPago = "Paypal";
-    } else {
-        $metodoPago = "Pago contraentrega";
-    }
-    $facturaDto->setMetodoPago($metodoPago);
+    $facturaDto->setMetodoPago($_POST["metodoPago"]);
     $facturaDto->setPrecioFinal($_POST["totalPrecio"]);
     $idFactura = registrarFactura($facturaDto);
 
@@ -57,22 +48,6 @@ function registrar()
    $msg = "Registro creado exitosamente";
     header("Location:../Views/index.php?msg=$msg");
 }
-
-/*function modificar()
-{
-    $detalleFacturaDto = new DetalleFacturaDto();
-    $detalleFacturaDao = new DetalleFacturaDao();
-
-    $detalleFacturaDto->setIdDetalleFactura($_POST["idDetalleFactura"]);
-    $detalleFacturaDto->setCantidad($_POST["cantidad"]);
-    $precioTotal = $detalleFacturaDto->getCantidad() * $productoDto->getPrecio();
-    $detalleFacturaDto->setPrecioTotal($precioTotal);
-    $detalleFacturaDto->SetProducto($productoDto->getIdProducto());
-    $detalleFacturaDto->SetFactura($facturaDto->getIdFactura());
-
-    $msg = $detalleFacturaDao->modificar($detalleFacturaDto);
-    header("Location:../index.php?msg=$msg");
-}*/
 
 function eliminar()
 {

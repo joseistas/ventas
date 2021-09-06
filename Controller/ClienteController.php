@@ -10,13 +10,6 @@ function registrarCliente(ClienteDto $clienteDto)
     //header("Location:../index.php?msg=$msg");
 }
 
-function modificarCliente(ClienteDto $clienteDto)
-{
-    $clienteDao = new ClienteDao();
-    $clienteDao->modificar($clienteDto);
-    //header("Location:../index.php?msg=$msg");
-}
-
 function eliminarCliente()
 {
     $clienteDao = new ClienteDao();

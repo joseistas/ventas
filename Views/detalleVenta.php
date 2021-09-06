@@ -127,18 +127,12 @@ require "../Controller/ComprasController.php";
 								</div>
 								<div class="payment_options">
 									<div>
-										<input type="radio" id="radio_payment_0" name="metodoPago0" class="regular_radio">
-										<label for="radio_payment_1">Pago contraentrega</label>
-									</div>
-									<div>
-										<input type="radio" id="radio_payment_1" name="metodoPago1" class="regular_radio">
-										<label for="radio_payment_1">Pago con tarjeta</label>
-									</div>
-									<div>
-										<input type="radio" id="radio_payment_2" name="metodoPago2" class="regular_radio" checked>
-										<label for="radio_payment_2">Paypal</label>
-										<div class="visa payment_option"><a href="#"><img src="images/visa.jpg" alt=""></a></div>
-										<div class="master payment_option"><a href="#"><img src="images/master.jpg" alt=""></a></div>
+										<select name="metodoPago" required="required">
+											<option selected disabled>Seleccionar método pago...</option>
+											<option value="Pago contraentrega">Pago contraentrega</option>
+											<option value="Pago con tarjeta">Pago con tarjeta</option>
+											<option value="Paypal">Paypal</option>
+										</select>
 									</div>
 									<input type="submit" name="registrar" class="cart_total_button" value="Realizar orden" />
 								</div>
