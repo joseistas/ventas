@@ -1,5 +1,7 @@
 <?php
-
+require '../../Model/dao/ProductoDao.php';
+require '../../Model/dto/ProductoDto.php';
+require '../../Core/conexion.php';
 require 'template.php';
 echo '<title>Modificar Producto</title>';
 ?>
@@ -49,7 +51,7 @@ echo '<title>Modificar Producto</title>';
                 <div class="col-md-1"></div>
                 <div class="col-md-10 form-group">
                     <label for="imagen">Imagen (*)</label>
-                    <input type="file" id="imagen" name="imagen" class="form-control" value="<?php echo $productos['imagen'] ?>" required>
+                    <input type="text" id="imagen" name="imagen" class="form-control" value="<?php echo $productos['imagen'] ?>" required>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -77,11 +79,11 @@ echo '<title>Modificar Producto</title>';
                 <div class="col-md-1"></div>
                 <div class="col-md-10 form-group">
                     <label for="descripcion">Descripción del Producto (*)</label>
-                    <textarea id="descripcion" name="descripcion" type="text" class="form-control" placeholder="Descripción del Producto" value="<?php echo $usuarios['descripcion'] ?>" required>
-                    </textarea>
+                    <textarea id="descripcion" name="descripcion"  class="form-control" placeholder="Descripción del Producto" value="<?php echo $productos['descripcion'] ?>" required></textarea>
                 </div>
                 <div class="col-md-1"></div>
             </div>
+            <input id="idUsuarioCreacion" name="idUsuarioCreacion" type="hidden" value="<?php echo $productos['idUsuarioCreacion'] ?>" required>
             <div class="text-center my-4">
                 <button type="submit" id="modificar" name="modificar" class="btn btn-primary w-50 py-2">Modificar</button>
             </div>

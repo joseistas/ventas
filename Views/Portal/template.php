@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/bootstrap4/bootstrap.min.css" />
     <link rel="stylesheet" href="../styles/dashboard.css" />
+    <link rel="stylesheet" type="text/css" href="../plugins/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>

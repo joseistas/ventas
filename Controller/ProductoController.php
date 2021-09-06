@@ -14,7 +14,7 @@ if (isset($_POST["registrar"])) {
 function registrar(UsuarioDto $usuarioDto)
 {
     $productoDto = new ProductoDto();
-    $productoDao = new ProductoDao();
+    $productoDao = new ProductoDao(); 
     $productoDto->setImagen($_POST["imagen"]);
     $productoDto->setNombre($_POST["nombre"]);
     $productoDto->setDescripcion($_POST["descripcion"]);
@@ -22,7 +22,7 @@ function registrar(UsuarioDto $usuarioDto)
     $productoDto->setPrecio($_POST["precio"]);
     $productoDto->setIdUsuarioCreacion($usuarioDto);
     $msg = $productoDao->registrar($productoDto);
-    header("Location:../index.php?msg=$msg");
+    header("Location:../registarProducto.php?msg=$msg");
 }
 
 function modificar(UsuarioDto $usuarioDto)
@@ -37,13 +37,13 @@ function modificar(UsuarioDto $usuarioDto)
     $productoDto->setPrecio($_POST["precio"]);
     $productoDto->setIdUsuarioCreacion($usuarioDto);
     $msg = $productoDao->modificar($productoDto);
-    header("Location:../index.php?msg=$msg");
+    header("Location:../../");
 }
 
 function eliminar()
 {
     $productoDao = new ProductoDao();
     $msg = $productoDao->eliminar($_GET["eliminar"]);
-    header("Location:../index.php?msg=$msg");
+    header("Location:../admin.php?msg=$msg");
 }
 ?>

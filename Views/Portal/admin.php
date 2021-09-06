@@ -39,7 +39,7 @@ echo '<title>Administrador</title>';
                 <td> <?php echo $producto['descripcion']; ?> </td>
                 <td> <?php echo $producto['cantidad']; ?> </td>
                 <td> <?php echo $producto['precio']; ?> </td>
-                <td style="width: 5%;"> <a name="idProducto" id="idProducto" href="modificarProducto.php?id=<?php echo $producto['idProducto']; ?>"> </a> </td>
+                <td style="width: 5%;"><a name="idProducto" id="idProducto" href="modificarProducto.php?id=<?php echo $producto['idProducto']; ?>"><i class="fa fa-pencil"></i></a></td>
             </tr>
         <?php
                 }

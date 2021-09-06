@@ -1,5 +1,7 @@
 <?php
-
+require '../../Model/dao/ProductoDao.php';
+require '../../Model/dto/ProductoDto.php';
+require '../../Core/conexion.php';
 require 'template.php';
 echo '<title>Registrar Producto</title>';
 ?>
@@ -57,15 +59,15 @@ echo '<title>Registrar Producto</title>';
                 </div>
                 <div class="col-md-1"></div>
             </div>
-            <div class="form-row my-3">
+            <div class="form-row my-3"> 
                 <div class="col-md-1"></div>
                 <div class="col-md-10 form-group">
                     <label for="descripcion">Descripción del Producto (*)</label>
-                    <textarea id="descripcion" name="descripcion" type="text" class="form-control" placeholder="Descripción del Producto" required>
-                    </textarea>
+                    <textarea id="descripcion" name="descripcion" class="form-control" required></textarea>
                 </div>
                 <div class="col-md-1"></div>
             </div>
+            <input type="hidden" id="idUsuarioCreacion" name="idUsuarioCreacion" value="<? echo $ ?>">
             <div class="text-center my-4">
                 <button type="submit" id="registro" name="registro" class="btn btn-primary w-50 py-2">Registrar</button>
             </div>
