@@ -1,5 +1,5 @@
 <?php
-require "../Core/conexion.php";
+
 class ProductoDao
 {
     private $mensaje;
