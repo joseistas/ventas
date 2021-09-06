@@ -141,7 +141,7 @@ require "../Controller/ComprasController.php";
 									<div class="product_price">$precio</div>
 								</div>
 								<div class="product_options">
-									<div class="product_buy product_option"><img src="images/shopping-bag-white.svg" alt=""></div>
+									
 									<div class="product_fav product_option product_select" data-producto="$id">+</div>
 								</div>
 							</div>
