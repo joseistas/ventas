@@ -59,11 +59,12 @@ class FacturaDao
             $query->bindParam(5, $facturaDto->getPrecioFinal());
             $query->execute();
             $mensaje = "Registro creado exitosamente.";
+            $id = $cnn->lastInsertId();
         } catch (Exception $ex) {
             $mensaje = "Error: " . $ex->getMessage() . ".";
         }
         $cnn = null;
-        return $mensaje;
+        return $id;
     }
 
     function modificar(FacturaDto $facturaDto)
