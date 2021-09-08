@@ -1,13 +1,13 @@
 <?php
+
+
 session_start();
 if (!isset($_SESSION['usuario'])) {
     header("Location:login.php");
 }
-?>
-<?php
-require '../../Model/dao/ProductoDao.php';
-require '../../Model/dto/ProductoDto.php';
-require '../../Core/conexion.php';
+
+
+
 require 'template.php';
 echo '<title>Registrar Producto</title>';
 ?>
@@ -41,7 +41,7 @@ echo '<title>Registrar Producto</title>';
                 <div class="col-md-1"></div>
                 <div class="col-md-10 form-group">
                     <label for="imagen">Imagen (*)</label>
-                    <input type="file" id="imagen" name="imagen" class="form-control" required>
+                    <input type="file" id="imagen" name="imagen" class="form-control" >
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -73,7 +73,7 @@ echo '<title>Registrar Producto</title>';
                 </div>
                 <div class="col-md-1"></div>
             </div>
-            <input type="hidden" id="idUsuarioCreacion" name="idUsuarioCreacion" value="<? echo $_SESSION['usuario']->idUsuario?>">
+            <input type="hidden" id="idUsuarioCreacion" name="idUsuarioCreacion" value="<?php echo $_SESSION['usuario']->idUsuario?>">
             <div class="text-center my-4">
                 <button type="submit" id="registro" name="registro" class="btn btn-primary w-50 py-2">Registrar</button>
             </div>

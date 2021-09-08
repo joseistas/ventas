@@ -8,7 +8,7 @@ class ProductoDao
     {
         $cnn = Conexion::getConexion();
         try {
-            $query = $cnn->prepare("INSERT INTO producto values (?, ?, ?, ?, ?, ?)");
+            $query = $cnn->prepare("INSERT INTO producto values (null,?, ?, ?, ?, ?, ?)");
             $query->bindParam(1, $productoDto->getImagen());
             $query->bindParam(2, $productoDto->getNombre());
             $query->bindParam(3, $productoDto->getDescripcion());
@@ -35,7 +35,7 @@ class ProductoDao
             $query->bindParam(4, $productoDto->getDescripcion()); 
             $query->bindParam(5, $productoDto->getCantidad());
             $query->bindParam(6, $productoDto->getPrecio());
-            $query->bindParam(7, $productoDto->getIdUsuarioCreacion()->getIdUsuario());
+            $query->bindParam(7, $productoDto->getIdUsuarioCreacion());
             $query->bindParam(8, $productoDto->getIdProducto());
             $query->execute();
             $mensaje = "Se ha actualizado exitosamente.";
